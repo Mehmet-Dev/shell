@@ -15,14 +15,14 @@ A simple C shell/command line interpreter.
 
 ---
 
-#### **PHASE 1 – Core Shell Loop**
+#### **PHASE 1 – Core Shell Loop** ✅
 
 | Step | Task                                          |
 | ---- | --------------------------------------------- |
-| 1.1  | Implement a prompt (`myshell> `)              |
-| 1.2  | Read user input with `getline()` or `fgets()` |
-| 1.3  | Echo the input back (basic REPL loop)         |
-| 1.4  | Implement `exit` command to quit              |
+| 1.1  | Implement a prompt (`myshell> `) ✅             |
+| 1.2  | Read user input with `getline()` or `fgets()` ✅ |
+| 1.3  | Echo the input back (basic REPL loop) ✅        |
+| 1.4  | Implement `exit` command to quit ✅             |
 
 ---
 
