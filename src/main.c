@@ -35,10 +35,25 @@ int main(){
         }
         else
         {
-            printf("\nYou typed in: %s", prompt);
-            printf("\n\n");
+            int i = 0;
+            char * pointer = strtok(prompt, " ");
+            char *array[64];
+
+            while(pointer != NULL)
+            {
+                array[i++] = pointer;
+                pointer = strtok(NULL, " ");
+            }
+
+            array[i] = NULL;
+
+            int length = i;
+
+            for(i = 0; i < length; ++i)
+                printf("%s\n", array[i]);
         }
     }
+    
     clear();
 
     printf("Thank you for using turtle shell\n");
