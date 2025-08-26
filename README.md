@@ -26,14 +26,14 @@ A simple C shell/command line interpreter.
 
 ---
 
-#### **PHASE 2 – Command Execution**
+#### **PHASE 2 – Command Execution** ✅ 
 
 | Step | Task                                               |
 | ---- | -------------------------------------------------- |
 | 2.1  | Parse user input into command + arguments ✅         |
-| 2.2  | Use `fork()` + `execvp()` to run external commands |
-| 2.3  | Use `wait()` to handle child processes             |
-| 2.4  | Handle basic errors (e.g., command not found)      |
+| 2.2  | Use `fork()` + `execvp()` to run external commands ✅  |
+| 2.3  | Use `wait()` to handle child processes ✅              |
+| 2.4  | Handle basic errors (e.g., command not found) ✅      |
 
 ---
 
