@@ -6,10 +6,37 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <linux/limits.h>
+#include <errno.h>
 
 void clear()
 {
     printf("\e[1;1H\e[2J");
+}
+
+void handle_help()
+{
+    printf("-- List of commands --\n\n");
+    printf("cd [dir] <- Change directory where dir is the path or folder\n");
+    printf("pwd <- Print current working directory\n");
+    printf("help <- Show available commands\n");
+    printf("exit <- Exit turtle shell\n\n");
+}
+
+void handle_change_directory(char *path)
+{
+    if(path == NULL)
+    {
+        path = getenv("HOME");
+
+        if(path == NULL) {
+            fprintf(stderr, "cd: HOME not set\n");
+            return;
+        }
+    }
+
+    if(chdir(path) == -1) {
+        perror("cd");
+    }
 }
 
 void create_child_process(char *arguments[])
@@ -66,20 +93,22 @@ int main()
     {
         char prompt[1024];
         char cwd[PATH_MAX];
-        
-        if(getcwd(cwd, sizeof(cwd)) != NULL)
+
+        if (getcwd(cwd, sizeof(cwd)) != NULL)
             printf("$ %s > ", cwd);
         else
             printf("$ > ");
-        
+
         fgets(prompt, sizeof(prompt), stdin);
         prompt[strcspn(prompt, "\n")] = 0;
 
         if (strcmp("exit", prompt) == 0)
-        {
             break;
-        }
-        else if(strcmp("", prompt) == 0)
+        else if(strcmp(prompt, "pwd") == 0)
+            printf("Current working directory: %s\n", cwd);
+        else if(strcmp(prompt, "help") == 0)
+            handle_help();
+        else if (strcmp("", prompt) == 0)
             continue;
         else
         {
@@ -97,7 +126,10 @@ int main()
 
             int length = i;
 
-            create_child_process(array);
+            if (strcmp(array[0], "cd") == 0)
+                handle_change_directory(array[1]);
+            else
+                create_child_process(array);
         }
     }
 

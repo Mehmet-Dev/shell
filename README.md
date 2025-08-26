@@ -37,13 +37,13 @@ A simple C shell/command line interpreter.
 
 ---
 
-#### **PHASE 3 – Built-in Commands**
+#### **PHASE 3 – Built-in Commands** ✅
 
 | Step | Task                                |
 | ---- | ----------------------------------- |
-| 3.1  | Add `cd` (change directory)         |
-| 3.2  | Add `pwd` (print working directory) |
-| 3.3  | Add `help` (list built-in commands) |
+| 3.1  | Add `cd` (change directory) ✅        |
+| 3.2  | Add `pwd` (print working directory) ✅ |
+| 3.3  | Add `help` (list built-in commands) ✅ |
 
 ---
 
